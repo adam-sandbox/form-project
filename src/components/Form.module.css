@@ -1,0 +1,9 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.root > input {
+  margin: 0 0 1rem 0;
+}
