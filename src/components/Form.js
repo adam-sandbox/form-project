@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 
 import styles from "./Form.module.css";
 import FormField from "./FormField";
 
-const Form = () => {
+const Form = ({ onSubmit }) => {
   const [name, setName] = useState("");
   const [salary, setSalary] = useState("");
   const [age, setAge] = useState("");
-  const handleSubmit = () => {
-    console.log("hello");
-  };
+  const handleSubmit = useCallback(() => {
+    onSubmit({ name, salary, age });
+  }, [name, salary, age, onSubmit]);
 
   return (
     <div className={styles.root}>
