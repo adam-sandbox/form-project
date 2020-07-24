@@ -7,6 +7,7 @@ const Form = ({ onSubmit }) => {
   const [name, setName] = useState("");
   const [salary, setSalary] = useState("");
   const [age, setAge] = useState("");
+
   const handleSubmit = useCallback(() => {
     onSubmit({ name, salary, age });
   }, [name, salary, age, onSubmit]);
