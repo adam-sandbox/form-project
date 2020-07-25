@@ -31,7 +31,7 @@ export const Invalid = () => {
       initialData={Immutable.Map({
         name: "1234",
         salary: "",
-        age: 30,
+        age: -30,
       })}
     />
   );

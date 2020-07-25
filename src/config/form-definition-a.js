@@ -14,13 +14,15 @@ export default Immutable.fromJS([
     label: "Salary",
     type: "number",
     config: { min: 0 },
-    validator: (value) => trim(value) !== "" && Number(value),
+    validator: (value) =>
+      trim(value) !== "" && Number(value) && Number(value) > 0,
   },
   {
     id: "age",
     label: "Age",
     type: "number",
     config: { min: 0 },
-    validator: (value) => trim(value) !== "" && Number(value),
+    validator: (value) =>
+      trim(value) !== "" && Number(value) && Number(value) > 0,
   },
 ]);

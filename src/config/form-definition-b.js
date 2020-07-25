@@ -21,6 +21,7 @@ export default Immutable.fromJS([
     label: "Postcode",
     type: "number",
     config: { min: 0 },
-    validator: (value) => trim(value) !== "" && Number(value),
+    validator: (value) =>
+      trim(value) !== "" && Number(value) && Number(value) > 0,
   },
 ]);
