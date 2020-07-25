@@ -8,8 +8,10 @@ import styles from "./Form.module.css";
 
 const Form = ({ definition, initialData }) => {
   const {
-    formData,
-    formIsValid,
+    data,
+    result,
+    isValid,
+    isLoading,
     handleChangeField,
     handleSubmitForm,
   } = useForm(definition, initialData);
@@ -20,13 +22,15 @@ const Form = ({ definition, initialData }) => {
         <FormField
           key={field.get("id")}
           definition={field}
-          value={formData.get(field.get("id"))}
+          value={data.get(field.get("id"))}
+          disabled={isLoading}
           onChange={handleChangeField}
         />
       ))}
-      <button disabled={!formIsValid} onClick={handleSubmitForm}>
-        Submit
+      <button disabled={!isValid || isLoading} onClick={handleSubmitForm}>
+        {isLoading ? "Loading..." : "Submit"}
       </button>
+      {result && result.id && <div>{`User ${result.id} was created`}</div>}
     </div>
   );
 };

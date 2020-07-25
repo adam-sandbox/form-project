@@ -6,12 +6,14 @@ import trim from "lodash/trim";
 
 import styles from "./FormField.module.css";
 
-const FormField = ({ definition, value, onChange }) => {
+const FormField = ({ definition, value, disabled, onChange }) => {
   const handleChange = useCallback(
     (event) => onChange(definition, event.target.value),
     [definition, onChange]
   );
+
   const isValid = trim(value) === "" || definition.get("validator")(value);
+
   const constraints = definition.has("constraints")
     ? definition.get("constraints").toJS()
     : {};
@@ -25,6 +27,7 @@ const FormField = ({ definition, value, onChange }) => {
         [styles.validationError]: !isValid,
       })}
       onChange={handleChange}
+      disabled={disabled}
       {...constraints}
     />
   );
@@ -41,8 +44,13 @@ FormField.propTypes = {
       spellCheck: PropTypes.bool,
     }),
   }),
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  disabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
+};
+
+FormField.defaultProps = {
+  disabled: false,
 };
 
 export default FormField;
