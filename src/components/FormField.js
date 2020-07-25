@@ -19,17 +19,20 @@ const FormField = ({ definition, value, disabled, onChange }) => {
     : {};
 
   return (
-    <input
-      type={definition.get("type")}
-      value={value}
-      placeholder={definition.get("label")}
-      className={classnames(styles.inputField, {
-        [styles.validationError]: !isValid,
-      })}
-      onChange={handleChange}
-      disabled={disabled}
-      {...constraints}
-    />
+    <div className={styles.root}>
+      <input
+        type={definition.get("type")}
+        value={value}
+        placeholder={definition.get("label")}
+        className={classnames(styles.field, {
+          [styles.validationError]: !isValid,
+        })}
+        onChange={handleChange}
+        disabled={disabled}
+        {...constraints}
+      />
+      {!isValid && <div className={styles.validationAlert}>!</div>}
+    </div>
   );
 };
 

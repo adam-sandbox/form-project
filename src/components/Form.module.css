@@ -1,10 +1,32 @@
 .root {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #eee;
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  background: #eee;
 }
 
-.root > label {
+.root > * {
   margin: 0 0 1rem 0;
+}
+
+.submitButton {
+  background-color: hsl(195, 90%, 69%);
+  border: 0;
+  color: hsl(195, 90%, 15%);
+  height: 3rem;
+  transition: all 0.3s;
+}
+
+.submitButton.disabled {
+  background-color: #ccc;
+  color: #777;
+  cursor: not-allowed;
+}
+
+.submitButton.loading {
+  background-color: #ccc;
+  color: #777;
+  cursor: wait;
 }
