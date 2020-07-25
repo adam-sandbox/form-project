@@ -1,7 +1,9 @@
-export async function post(url, data = {}) {
-  if (!url) return;
+export const URL = "https://reqres.in/api";
 
-  const response = await fetch(url, {
+export async function create(data) {
+  if (!data) return;
+
+  const response = await fetch(`${URL}/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

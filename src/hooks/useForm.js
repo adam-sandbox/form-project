@@ -1,18 +1,19 @@
-import { useState, useCallback } from "react";
 import Immutable from "immutable";
+import { useState, useCallback } from "react";
 
-import { post } from "../utilities/api";
+import { create } from "../utilities/api";
 
-const useForm = ({ apiUrl, fieldDefinitions }) => {
-  const [formData, setFormData] = useState(
-    Immutable.Map({
-      name: "",
-      salary: "",
-      age: "",
-    })
-  );
+const useForm = (definition, initialData) => {
+  const data =
+    initialData ||
+    definition.reduce(
+      (fields, field) => fields.set(field.get("id"), ""),
+      Immutable.Map()
+    );
 
-  const formIsValid = fieldDefinitions.every((field) => {
+  const [formData, setFormData] = useState(data);
+
+  const formIsValid = definition.every((field) => {
     const fieldValidator = field.get("validator");
     const fieldValue = formData.get(field.get("id"));
     return fieldValidator(fieldValue);
@@ -24,10 +25,10 @@ const useForm = ({ apiUrl, fieldDefinitions }) => {
   };
 
   const handleSubmitForm = useCallback(() => {
-    post(apiUrl, formData.toJS()).then((response) => {
+    create(formData.toJS()).then((response) => {
       console.log(response);
     });
-  }, [apiUrl, formData]);
+  }, [formData]);
 
   return {
     formData,
