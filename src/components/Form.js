@@ -1,23 +1,22 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 
 import styles from "./Form.module.css";
 import FormField from "./FormField";
 
-const Form = ({ onSubmit }) => {
-  const [name, setName] = useState("");
-  const [salary, setSalary] = useState("");
-  const [age, setAge] = useState("");
-
-  const handleSubmit = useCallback(() => {
-    onSubmit({ name, salary, age });
-  }, [name, salary, age, onSubmit]);
-
+const Form = ({ definition, data, isValid, onChangeField, onSubmit }) => {
   return (
     <div className={styles.root}>
-      <FormField label="Name" value={name} onChange={setName} />
-      <FormField label="Salary" value={salary} onChange={setSalary} />
-      <FormField label="Age" value={age} onChange={setAge} />
-      <button onClick={handleSubmit}>Submit</button>
+      {definition.map((field) => (
+        <FormField
+          key={field.get("id")}
+          definition={field}
+          value={data.get(field.get("id"))}
+          onChange={onChangeField}
+        />
+      ))}
+      <button disabled={!isValid} onClick={onSubmit}>
+        Submit
+      </button>
     </div>
   );
 };
