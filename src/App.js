@@ -8,8 +8,10 @@ import styles from "./App.module.css";
 const App = () => {
   return (
     <div className={styles.root}>
-      <Form definition={formDefinitionA} />
-      <Form definition={formDefinitionB} />
+      <div className={styles.formContainer}>
+        <Form definition={formDefinitionA} />
+        <Form definition={formDefinitionB} />
+      </div>
     </div>
   );
 };

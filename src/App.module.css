@@ -1,15 +1,22 @@
 .root {
   display: flex;
+  max-width: 80rem;
+  margin: auto;
+}
+
+.formContainer {
+  display: flex;
+  flex: 1;
   flex-direction: column;
 }
 
-.root > div {
+.formContainer > div {
   flex: 1;
   margin: 2rem;
 }
 
 @media (min-width: 768px) {
-  .root {
+  .formContainer {
     flex-direction: row;
   }
 }

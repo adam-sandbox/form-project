@@ -1,7 +1,10 @@
 .root {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  height: 5rem;
   border: 1px dashed #ccc;
+  color: #333;
+  display: flex;
+  font-family: sans-serif;
+  font-size: 1rem;
+  height: 5rem;
+  justify-content: center;
 }

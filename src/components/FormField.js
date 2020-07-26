@@ -19,19 +19,23 @@ const FormField = ({ definition, value, disabled, onChange }) => {
     : {};
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} title={definition.get("label")}>
       <input
         type={definition.get("type")}
         value={value}
         placeholder={definition.get("label")}
         className={classnames(styles.field, {
-          [styles.validationError]: !isValid,
+          [styles.error]: !isValid,
         })}
         onChange={handleChange}
         disabled={disabled}
         {...constraints}
       />
-      {!isValid && <div className={styles.validationAlert}>!</div>}
+      {!isValid && (
+        <div title="Validation error" className={styles.validationAlert}>
+          !
+        </div>
+      )}
     </div>
   );
 };
