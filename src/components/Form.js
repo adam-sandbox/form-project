@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ImmutablePropTypes from "react-immutable-proptypes";
-import classnames from "classnames";
 
 import FormField from "./FormField";
+import FormButton from "./FormButton";
 import useForm from "../hooks/useForm";
 import styles from "./Form.module.css";
 
@@ -28,16 +28,12 @@ const Form = ({ definition, initialData }) => {
           onChange={handleChangeField}
         />
       ))}
-      <button
-        className={classnames(styles.submitButton, {
-          [styles.disabled]: !isValid,
-          [styles.loading]: isLoading,
-        })}
-        disabled={!isValid || isLoading}
+      <FormButton
+        label="Submit"
+        disabled={!isValid}
+        loading={isLoading}
         onClick={handleSubmitForm}
-      >
-        {isLoading ? "Loading..." : "Submit"}
-      </button>
+      />
       {result && result.id && <div>{`User ${result.id} was created`}</div>}
     </div>
   );

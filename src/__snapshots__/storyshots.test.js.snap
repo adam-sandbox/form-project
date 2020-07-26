@@ -41,7 +41,7 @@ exports[`Storyshots Form Default 1`] = `
     />
   </div>
   <button
-    className="submitButton disabled"
+    className="root disabled"
     disabled={true}
     onClick={[Function]}
   >
@@ -101,7 +101,7 @@ exports[`Storyshots Form Invalid 1`] = `
     </div>
   </div>
   <button
-    className="submitButton disabled"
+    className="root disabled"
     disabled={true}
     onClick={[Function]}
   >
@@ -151,13 +151,43 @@ exports[`Storyshots Form Valid 1`] = `
     />
   </div>
   <button
-    className="submitButton"
+    className="root"
     disabled={false}
     onClick={[Function]}
   >
     Submit
   </button>
 </div>
+`;
+
+exports[`Storyshots FormButton Default 1`] = `
+<button
+  className="root"
+  disabled={false}
+  onClick={[Function]}
+>
+  Button
+</button>
+`;
+
+exports[`Storyshots FormButton Disabled 1`] = `
+<button
+  className="root disabled"
+  disabled={true}
+  onClick={[Function]}
+>
+  Button
+</button>
+`;
+
+exports[`Storyshots FormButton Loading 1`] = `
+<button
+  className="root loading"
+  disabled={false}
+  onClick={[Function]}
+>
+  Loading...
+</button>
 `;
 
 exports[`Storyshots FormField Default 1`] = `

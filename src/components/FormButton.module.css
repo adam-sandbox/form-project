@@ -1,0 +1,20 @@
+.root {
+  background-color: hsl(195, 90%, 69%);
+  border: 0;
+  color: hsl(195, 90%, 15%);
+  height: 3rem;
+  padding: 0 1.5rem;
+  transition: all 0.3s;
+}
+
+.root.disabled {
+  background-color: #ccc;
+  color: #777;
+  cursor: not-allowed;
+}
+
+.root.loading {
+  background-color: #ccc;
+  color: #777;
+  cursor: wait;
+}
