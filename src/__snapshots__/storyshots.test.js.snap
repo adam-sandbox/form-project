@@ -26,7 +26,7 @@ exports[`Storyshots Form Default 1`] = `
       disabled={false}
       onChange={[Function]}
       placeholder="Salary"
-      type="number"
+      type="text"
       value=""
     />
   </div>
@@ -39,7 +39,7 @@ exports[`Storyshots Form Default 1`] = `
       disabled={false}
       onChange={[Function]}
       placeholder="Age"
-      type="number"
+      type="text"
       value=""
     />
   </div>
@@ -62,7 +62,7 @@ exports[`Storyshots Form Invalid 1`] = `
     title="Name"
   >
     <input
-      className="field error"
+      className="field"
       disabled={false}
       onChange={[Function]}
       placeholder="Name"
@@ -79,7 +79,7 @@ exports[`Storyshots Form Invalid 1`] = `
       disabled={false}
       onChange={[Function]}
       placeholder="Salary"
-      type="number"
+      type="text"
       value=""
     />
   </div>
@@ -88,11 +88,11 @@ exports[`Storyshots Form Invalid 1`] = `
     title="Age"
   >
     <input
-      className="field validationError"
+      className="field error"
       disabled={false}
       onChange={[Function]}
       placeholder="Age"
-      type="number"
+      type="text"
       value={-30}
     />
     <div
@@ -138,7 +138,7 @@ exports[`Storyshots Form Valid 1`] = `
       disabled={false}
       onChange={[Function]}
       placeholder="Salary"
-      type="number"
+      type="text"
       value="50000"
     />
   </div>
@@ -151,7 +151,7 @@ exports[`Storyshots Form Valid 1`] = `
       disabled={false}
       onChange={[Function]}
       placeholder="Age"
-      type="number"
+      type="text"
       value={34}
     />
   </div>
@@ -217,7 +217,7 @@ exports[`Storyshots FormField Invalid 1`] = `
   title="Name"
 >
   <input
-    className="field validationError"
+    className="field error"
     disabled={false}
     onChange={[Function]}
     placeholder="Name"
@@ -252,17 +252,7 @@ exports[`Storyshots FormField Valid 1`] = `
 exports[`Storyshots FormNotification Default 1`] = `
 <div
   className="root"
-/>
-`;
-
-exports[`Storyshots FormNotification Invalid 1`] = `
-<div
-  className="root"
-/>
-`;
-
-exports[`Storyshots FormNotification Valid 1`] = `
-<div
-  className="root"
-/>
+>
+  Test message
+</div>
 `;

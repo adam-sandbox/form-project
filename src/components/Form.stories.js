@@ -16,7 +16,7 @@ const validData = Immutable.Map({
 });
 
 const invalidData = Immutable.Map({
-  name: "1234",
+  name: "",
   salary: "",
   age: -30,
 });

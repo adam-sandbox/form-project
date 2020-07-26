@@ -21,7 +21,7 @@ const FormField = ({ definition, value, disabled, onChange }) => {
   return (
     <div className={styles.root} title={definition.get("label")}>
       <input
-        type={definition.get("type")}
+        type="text"
         value={value}
         placeholder={definition.get("label")}
         className={classnames(styles.field, {
@@ -42,7 +42,6 @@ const FormField = ({ definition, value, disabled, onChange }) => {
 
 FormField.propTypes = {
   definition: ImmutablePropTypes.mapContains({
-    type: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     validator: PropTypes.func.isRequired,
     constraints: ImmutablePropTypes.mapContains({

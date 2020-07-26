@@ -1,28 +1,23 @@
 import Immutable from "immutable";
-import trim from "lodash/trim";
+import { isValidString, isValidNumber } from "../utilities/validators";
 
 export default Immutable.fromJS([
   {
     id: "name",
     label: "Name",
-    type: "text",
     config: { autoComplete: "off", spellCheck: false },
-    validator: (value) => trim(value) !== "" && !Number(value),
+    validator: isValidString,
   },
   {
     id: "salary",
     label: "Salary",
-    type: "number",
-    config: { min: 0 },
-    validator: (value) =>
-      trim(value) !== "" && Number(value) && Number(value) > 0,
+    config: { autoComplete: "off", spellCheck: false },
+    validator: isValidNumber,
   },
   {
     id: "age",
     label: "Age",
-    type: "number",
-    config: { min: 0 },
-    validator: (value) =>
-      trim(value) !== "" && Number(value) && Number(value) > 0,
+    config: { autoComplete: "off", spellCheck: false },
+    validator: isValidNumber,
   },
 ]);

@@ -47,7 +47,6 @@ Form.propTypes = {
     ImmutablePropTypes.mapContains({
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
       validator: PropTypes.func.isRequired,
     }).isRequired
   ).isRequired,
