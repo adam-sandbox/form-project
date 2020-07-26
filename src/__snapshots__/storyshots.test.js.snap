@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Form Default 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="root"
+  >
+    <input
+      className="field"
+      disabled={false}
+      onChange={[Function]}
+      placeholder="Name"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="root"
+  >
+    <input
+      className="field"
+      disabled={false}
+      onChange={[Function]}
+      placeholder="Salary"
+      type="number"
+      value=""
+    />
+  </div>
+  <div
+    className="root"
+  >
+    <input
+      className="field"
+      disabled={false}
+      onChange={[Function]}
+      placeholder="Age"
+      type="number"
+      value=""
+    />
+  </div>
+  <button
+    className="submitButton disabled"
+    disabled={true}
+    onClick={[Function]}
+  >
+    Submit
+  </button>
+</div>
+`;
+
+exports[`Storyshots Form Invalid 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="root"
+  >
+    <input
+      className="field validationError"
+      disabled={false}
+      onChange={[Function]}
+      placeholder="Name"
+      type="text"
+      value="1234"
+    />
+    <div
+      className="validationAlert"
+    >
+      !
+    </div>
+  </div>
+  <div
+    className="root"
+  >
+    <input
+      className="field"
+      disabled={false}
+      onChange={[Function]}
+      placeholder="Salary"
+      type="number"
+      value=""
+    />
+  </div>
+  <div
+    className="root"
+  >
+    <input
+      className="field validationError"
+      disabled={false}
+      onChange={[Function]}
+      placeholder="Age"
+      type="number"
+      value={-30}
+    />
+    <div
+      className="validationAlert"
+    >
+      !
+    </div>
+  </div>
+  <button
+    className="submitButton disabled"
+    disabled={true}
+    onClick={[Function]}
+  >
+    Submit
+  </button>
+</div>
+`;
+
+exports[`Storyshots Form Valid 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="root"
+  >
+    <input
+      className="field"
+      disabled={false}
+      onChange={[Function]}
+      placeholder="Name"
+      type="text"
+      value="Bob"
+    />
+  </div>
+  <div
+    className="root"
+  >
+    <input
+      className="field"
+      disabled={false}
+      onChange={[Function]}
+      placeholder="Salary"
+      type="number"
+      value="50000"
+    />
+  </div>
+  <div
+    className="root"
+  >
+    <input
+      className="field"
+      disabled={false}
+      onChange={[Function]}
+      placeholder="Age"
+      type="number"
+      value={34}
+    />
+  </div>
+  <button
+    className="submitButton"
+    disabled={false}
+    onClick={[Function]}
+  >
+    Submit
+  </button>
+</div>
+`;
+
+exports[`Storyshots FormField Default 1`] = `
+<div
+  className="root"
+>
+  <input
+    className="field"
+    disabled={false}
+    onChange={[Function]}
+    placeholder="Name"
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`Storyshots FormField Invalid 1`] = `
+<div
+  className="root"
+>
+  <input
+    className="field validationError"
+    disabled={false}
+    onChange={[Function]}
+    placeholder="Name"
+    type="text"
+    value={1234}
+  />
+  <div
+    className="validationAlert"
+  >
+    !
+  </div>
+</div>
+`;
+
+exports[`Storyshots FormField Valid 1`] = `
+<div
+  className="root"
+>
+  <input
+    className="field"
+    disabled={false}
+    onChange={[Function]}
+    placeholder="Name"
+    type="text"
+    value="Bob"
+  />
+</div>
+`;
