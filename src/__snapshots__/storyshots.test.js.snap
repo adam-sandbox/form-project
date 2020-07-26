@@ -239,3 +239,21 @@ exports[`Storyshots FormField Valid 1`] = `
   />
 </div>
 `;
+
+exports[`Storyshots FormNotification Default 1`] = `
+<div
+  className="root"
+/>
+`;
+
+exports[`Storyshots FormNotification Invalid 1`] = `
+<div
+  className="root"
+/>
+`;
+
+exports[`Storyshots FormNotification Valid 1`] = `
+<div
+  className="root"
+/>
+`;

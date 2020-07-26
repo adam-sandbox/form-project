@@ -4,6 +4,7 @@ import ImmutablePropTypes from "react-immutable-proptypes";
 
 import FormField from "./FormField";
 import FormButton from "./FormButton";
+import FormNotification from "./FormNotification";
 import useForm from "../hooks/useForm";
 import styles from "./Form.module.css";
 
@@ -34,7 +35,9 @@ const Form = ({ definition, initialData }) => {
         loading={isLoading}
         onClick={handleSubmitForm}
       />
-      {result && result.id && <div>{`User ${result.id} was created`}</div>}
+      {result && result.id && (
+        <FormNotification message={`User ${result.id} was created`} />
+      )}
     </div>
   );
 };
