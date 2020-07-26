@@ -4,21 +4,20 @@ import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
 import FormField from "./FormField";
+import { isValidNumber, isValidString } from "../utilities/validators";
 
 let container = null;
 
-const fieldDefinitionValid = Immutable.Map({
+const numberFieldDefinition = Immutable.Map({
   id: "test",
   label: "Test",
-  type: "text",
-  validator: () => true,
+  validator: isValidNumber,
 });
 
-const fieldDefinitionInvalid = Immutable.Map({
+const stringFieldDefinition = Immutable.Map({
   id: "test",
   label: "Test",
-  type: "text",
-  validator: () => false,
+  validator: isValidString,
 });
 
 beforeEach(() => {
@@ -32,30 +31,62 @@ afterEach(() => {
   container = null;
 });
 
-it("renders correctly with a valid field definition", () => {
+it("validation alert is displayed for a number field containing a string value", () => {
   act(() => {
     render(
       <FormField
-        value="Test"
+        value="Hello"
         onChange={() => {}}
-        definition={fieldDefinitionValid}
+        definition={numberFieldDefinition}
       />,
       container
     );
   });
-  expect(container.textContent).not.toBe(null);
+
+  expect(document.querySelectorAll(".validationAlert").length).toBe(1);
 });
 
-it("renders correctly with an invalid field definition", () => {
+it("validation alert is displayed for a string field containing a numeric value", () => {
   act(() => {
     render(
       <FormField
-        value="Test"
+        value={1234}
         onChange={() => {}}
-        definition={fieldDefinitionInvalid}
+        definition={stringFieldDefinition}
       />,
       container
     );
   });
-  expect(container.textContent).not.toBe(null);
+
+  expect(document.querySelectorAll(".validationAlert").length).toBe(1);
+});
+
+it("validation alert isn't displayed for a number field containing a numeric value", () => {
+  act(() => {
+    render(
+      <FormField
+        value={1234}
+        onChange={() => {}}
+        definition={numberFieldDefinition}
+      />,
+      container
+    );
+  });
+
+  expect(document.querySelectorAll(".validationAlert").length).toBe(0);
+});
+
+it("validation alert isn't displayed for a string field containing a string value", () => {
+  act(() => {
+    render(
+      <FormField
+        value="Hello"
+        onChange={() => {}}
+        definition={stringFieldDefinition}
+      />,
+      container
+    );
+  });
+
+  expect(document.querySelectorAll(".validationAlert").length).toBe(0);
 });

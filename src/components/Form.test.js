@@ -9,9 +9,15 @@ import formDefinition from "../config/form-definition-a";
 let container = null;
 
 const validData = Immutable.Map({
-  name: "Test",
-  salary: "50000",
-  age: 34,
+  name: "Bob",
+  salary: 50000,
+  age: 22,
+});
+
+const invalidData = Immutable.Map({
+  name: "Bob",
+  salary: 50000,
+  age: -22,
 });
 
 beforeEach(() => {
@@ -25,12 +31,24 @@ afterEach(() => {
   container = null;
 });
 
-it("renders as expected", () => {
+it("submit button is disabled when data is invalid", () => {
+  act(() => {
+    render(
+      <Form definition={formDefinition} initialData={invalidData} />,
+      container
+    );
+  });
+
+  expect(document.querySelector("button").disabled).toBe(true);
+});
+
+it("submit button is enabled when data is valid", () => {
   act(() => {
     render(
       <Form definition={formDefinition} initialData={validData} />,
       container
     );
   });
-  expect(container.textContent).not.toBe(null);
+
+  expect(document.querySelector("button").disabled).toBe(false);
 });
