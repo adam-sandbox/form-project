@@ -7,6 +7,14 @@
   padding: 2rem;
 }
 
-.root > *:not(:last-child) {
+.fields > div {
   margin: 0 0 1rem 0;
+}
+
+button {
+  margin: 1rem 0 0 0;
+}
+
+button + div {
+  margin-top: 2rem;
 }

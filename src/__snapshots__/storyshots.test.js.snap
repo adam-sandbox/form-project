@@ -5,43 +5,86 @@ exports[`Storyshots Form Default 1`] = `
   className="root"
 >
   <div
-    className="root"
-    title="Name"
+    className="fields"
   >
-    <input
-      className="field"
-      disabled={false}
-      onChange={[Function]}
-      placeholder="Name"
-      type="text"
-      value=""
-    />
+    <div
+      className="root"
+      title="Field A"
+    >
+      <input
+        autoComplete="off"
+        className="field"
+        disabled={false}
+        onChange={[Function]}
+        placeholder="Field A"
+        spellCheck={false}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="root"
+      title="Field B"
+    >
+      <input
+        autoComplete="off"
+        className="field"
+        disabled={false}
+        onChange={[Function]}
+        placeholder="Field B"
+        spellCheck={false}
+        type="number"
+        value=""
+      />
+    </div>
   </div>
-  <div
-    className="root"
-    title="Salary"
+  <button
+    className="root disabled"
+    disabled={true}
+    onClick={[Function]}
   >
-    <input
-      className="field"
-      disabled={false}
-      onChange={[Function]}
-      placeholder="Salary"
-      type="text"
-      value=""
-    />
-  </div>
+    Submit
+  </button>
+</div>
+`;
+
+exports[`Storyshots Form Incomplete 1`] = `
+<div
+  className="root"
+>
   <div
-    className="root"
-    title="Age"
+    className="fields"
   >
-    <input
-      className="field"
-      disabled={false}
-      onChange={[Function]}
-      placeholder="Age"
-      type="text"
-      value=""
-    />
+    <div
+      className="root"
+      title="Field A"
+    >
+      <input
+        autoComplete="off"
+        className="field"
+        disabled={false}
+        onChange={[Function]}
+        placeholder="Field A"
+        spellCheck={false}
+        type="text"
+        value="test"
+      />
+    </div>
+    <div
+      className="root"
+      title="Field B"
+    >
+      <input
+        autoComplete="off"
+        className="field"
+        disabled={false}
+        onChange={[Function]}
+        placeholder="Field B"
+        spellCheck={false}
+        type="number"
+        value=""
+      />
+    </div>
   </div>
   <button
     className="root disabled"
@@ -58,48 +101,43 @@ exports[`Storyshots Form Invalid 1`] = `
   className="root"
 >
   <div
-    className="root"
-    title="Name"
+    className="fields"
   >
-    <input
-      className="field"
-      disabled={false}
-      onChange={[Function]}
-      placeholder="Name"
-      type="text"
-      value=""
-    />
-  </div>
-  <div
-    className="root"
-    title="Salary"
-  >
-    <input
-      className="field"
-      disabled={false}
-      onChange={[Function]}
-      placeholder="Salary"
-      type="text"
-      value=""
-    />
-  </div>
-  <div
-    className="root"
-    title="Age"
-  >
-    <input
-      className="field error"
-      disabled={false}
-      onChange={[Function]}
-      placeholder="Age"
-      type="text"
-      value={-30}
-    />
     <div
-      className="validationAlert"
-      title="Validation error"
+      className="root"
+      title="Field A"
     >
-      !
+      <input
+        autoComplete="off"
+        className="field"
+        disabled={false}
+        onChange={[Function]}
+        placeholder="Field A"
+        spellCheck={false}
+        type="text"
+        value="test"
+      />
+    </div>
+    <div
+      className="root"
+      title="Field B"
+    >
+      <input
+        autoComplete="off"
+        className="field error"
+        disabled={false}
+        onChange={[Function]}
+        placeholder="Field B"
+        spellCheck={false}
+        type="number"
+        value="test"
+      />
+      <div
+        className="validationAlert"
+        title="Validation error"
+      >
+        !
+      </div>
     </div>
   </div>
   <button
@@ -117,43 +155,38 @@ exports[`Storyshots Form Valid 1`] = `
   className="root"
 >
   <div
-    className="root"
-    title="Name"
+    className="fields"
   >
-    <input
-      className="field"
-      disabled={false}
-      onChange={[Function]}
-      placeholder="Name"
-      type="text"
-      value="Bob"
-    />
-  </div>
-  <div
-    className="root"
-    title="Salary"
-  >
-    <input
-      className="field"
-      disabled={false}
-      onChange={[Function]}
-      placeholder="Salary"
-      type="text"
-      value="50000"
-    />
-  </div>
-  <div
-    className="root"
-    title="Age"
-  >
-    <input
-      className="field"
-      disabled={false}
-      onChange={[Function]}
-      placeholder="Age"
-      type="text"
-      value={34}
-    />
+    <div
+      className="root"
+      title="Field A"
+    >
+      <input
+        autoComplete="off"
+        className="field"
+        disabled={false}
+        onChange={[Function]}
+        placeholder="Field A"
+        spellCheck={false}
+        type="text"
+        value="test"
+      />
+    </div>
+    <div
+      className="root"
+      title="Field B"
+    >
+      <input
+        autoComplete="off"
+        className="field"
+        disabled={false}
+        onChange={[Function]}
+        placeholder="Field B"
+        spellCheck={false}
+        type="number"
+        value={100}
+      />
+    </div>
   </div>
   <button
     className="root"
@@ -198,14 +231,15 @@ exports[`Storyshots FormButton Loading 1`] = `
 exports[`Storyshots FormField Default 1`] = `
 <div
   className="root"
-  title="Name"
+  title="Field"
 >
   <input
+    autoComplete="off"
     className="field"
     disabled={false}
     onChange={[Function]}
-    placeholder="Name"
-    type="text"
+    placeholder="Field"
+    spellCheck={false}
     value=""
   />
 </div>
@@ -214,15 +248,16 @@ exports[`Storyshots FormField Default 1`] = `
 exports[`Storyshots FormField Invalid 1`] = `
 <div
   className="root"
-  title="Name"
+  title="Field"
 >
   <input
+    autoComplete="off"
     className="field error"
     disabled={false}
     onChange={[Function]}
-    placeholder="Name"
-    type="text"
-    value={1234}
+    placeholder="Field"
+    spellCheck={false}
+    value="Test"
   />
   <div
     className="validationAlert"
@@ -236,15 +271,16 @@ exports[`Storyshots FormField Invalid 1`] = `
 exports[`Storyshots FormField Valid 1`] = `
 <div
   className="root"
-  title="Name"
+  title="Field"
 >
   <input
+    autoComplete="off"
     className="field"
     disabled={false}
     onChange={[Function]}
-    placeholder="Name"
-    type="text"
-    value="Bob"
+    placeholder="Field"
+    spellCheck={false}
+    value="1234"
   />
 </div>
 `;

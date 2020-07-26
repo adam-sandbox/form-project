@@ -4,19 +4,21 @@ import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
 import FormField from "./FormField";
-import { isValidNumber, isValidString } from "../utilities/validators";
+import { isValidPositiveNumber, isValidString } from "utilities/validators";
 
 let container = null;
 
 const numberFieldDefinition = Immutable.Map({
   id: "test",
   label: "Test",
-  validator: isValidNumber,
+  type: "number",
+  validator: isValidPositiveNumber,
 });
 
 const stringFieldDefinition = Immutable.Map({
   id: "test",
   label: "Test",
+  type: "text",
   validator: isValidString,
 });
 
@@ -35,7 +37,7 @@ it("validation alert is displayed for a number field containing a string value",
   act(() => {
     render(
       <FormField
-        value="Hello"
+        value="Test"
         onChange={() => {}}
         definition={numberFieldDefinition}
       />,

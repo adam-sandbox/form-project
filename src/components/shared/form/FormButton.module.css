@@ -1,7 +1,7 @@
 .root {
-  background-color: hsl(195, 90%, 69%);
+  background-color: #69d4f7;
   border: 0;
-  color: hsl(195, 90%, 15%);
+  color: #043749;
   font-size: 1rem;
   height: 3rem;
   outline: none;
@@ -10,7 +10,7 @@
 }
 
 .root:hover {
-  background-color: hsl(195, 90%, 60%);
+  background-color: #3dc7f5;
 }
 
 .root.disabled {

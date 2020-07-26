@@ -6,7 +6,7 @@ import trim from "lodash/trim";
 
 import styles from "./FormField.module.css";
 
-const FormField = ({ definition, value, disabled, onChange }) => {
+const FormField = ({ definition, value, type, disabled, onChange }) => {
   const handleChange = useCallback(
     (event) => onChange(definition, event.target.value),
     [definition, onChange]
@@ -14,14 +14,14 @@ const FormField = ({ definition, value, disabled, onChange }) => {
 
   const isValid = trim(value) === "" || definition.get("validator")(value);
 
-  const constraints = definition.has("constraints")
-    ? definition.get("constraints").toJS()
+  const config = definition.has("config")
+    ? definition.get("config").toJS()
     : {};
 
   return (
     <div className={styles.root} title={definition.get("label")}>
       <input
-        type="text"
+        type={type}
         value={value}
         placeholder={definition.get("label")}
         className={classnames(styles.field, {
@@ -29,7 +29,7 @@ const FormField = ({ definition, value, disabled, onChange }) => {
         })}
         onChange={handleChange}
         disabled={disabled}
-        {...constraints}
+        {...config}
       />
       {!isValid && (
         <div title="Validation error" className={styles.validationAlert}>
@@ -43,8 +43,9 @@ const FormField = ({ definition, value, disabled, onChange }) => {
 FormField.propTypes = {
   definition: ImmutablePropTypes.mapContains({
     label: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(["text", "number", "date"]).isRequired,
     validator: PropTypes.func.isRequired,
-    constraints: ImmutablePropTypes.mapContains({
+    config: ImmutablePropTypes.mapContains({
       min: PropTypes.number,
       autoComplete: PropTypes.string,
       spellCheck: PropTypes.bool,

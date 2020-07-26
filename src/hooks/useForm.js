@@ -1,17 +1,15 @@
 import Immutable from "immutable";
 import { useState, useCallback } from "react";
 
-import { create } from "../utilities/api";
-
-const useForm = (definition, initialState) => {
-  const initialData =
-    initialState ||
+const useForm = ({ definition, api, initialData }) => {
+  const initialState =
+    initialData ||
     definition.reduce(
       (fields, field) => fields.set(field.get("id"), ""),
       Immutable.Map()
     );
 
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState(initialState);
   const [result, setResult] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,18 +28,19 @@ const useForm = (definition, initialState) => {
   );
 
   const handleSubmitForm = useCallback(() => {
-    if (isLoading) return;
+    if (!api || isLoading) return;
     setIsLoading(true);
-    create(data.toJS())
+    api
+      .create(data.toJS())
       .then((response) => {
         setIsLoading(false);
-        setData(initialData);
+        setData(initialState);
         setResult(response);
       })
       .catch((error) => {
         setIsLoading(false);
       });
-  }, [isLoading, data, initialData]);
+  }, [api, isLoading, data, initialState]);
 
   return {
     data,
