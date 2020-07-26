@@ -1,25 +1,33 @@
-# Notes
+# Readme
+
+- Run: `yarn start`
+- Storybook: `yarn storybook`
+- Test: `yarn test`
 
 ## Overview
 
 - React as primary UI library
-- Using `create-react-app` for scaffold/build
-- Custom hook for reusable form logic
-- CSS modules for styling
-- Basic responsive layout
-- Immutable data
-- Storybook for component library (`yarn storybook`)
+- Scaffold & build using Create React App
+- CSS Modules for styling
+- Storybook for component library
+- Snapshot tests derived from Storybook entries
+- Custom Hook for form state management, event handling etc
 
-## Note
+## Notes
 
-- App displays multiple `Form` instances, just to demonstrate the ability to configure unqiue fields, completely isolated form state etc
+- Implemented `Form`, `FormField`, `FormButton` etc as part of a shared component library
+  - `Form` accepts a definition of fields
+  - `FormField` accepts a field definition, which includes a `type`, `label`, `validator` etc
+- Please note:
+  - Using a relatively untouched/un-ejected `create-react-app` setup eg. default HTML template, favicon etc. Production app would require further customisation/cleanup.
+  - Used https://reqres.in as the testing API as http://dummy.restapiexample.com was down for maintenance
 
-- Using `create-react-app` un-ejected for simplicity... didn't focus on any file cleanup
+## Areas for improvement
 
-- https://reqres.in for test form submission, as the suggested API at http://dummy.restapiexample.com was unavailable
-
-## Improvements
-
-- More robust validation (utilise external dep)
-- Nicer styling, more polish, animation etc
-- More extensive test coverage
+- Field validation is very much placeholder, using simple string/number checks. Should validate specific date format(s), support for currency format(s), add support for multiple validators per field
+- Better date selection: currently just utilising native browser selection (where available). Depending on project requirements, may make sense to leverage a 3rd-party picker, or implement a more robust custom picker
+- Styling - more polish, validation feedback, animation etc
+- API error handling
+- More extensive tests...
+- Internationisation via `react-intl`
+- Further cross-browser/device testing, accessibility
